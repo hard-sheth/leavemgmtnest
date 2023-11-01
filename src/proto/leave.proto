@@ -3,49 +3,28 @@ syntax = "proto3";
 package leaveManagement;
 
 
-service ProductBookService {
-  rpc CreateProduct (createProductRequest) returns (Response) {}
-  rpc CreateEmployee (createEmployeeRequest) returns (Response) {}
+service LeaveService {
+  rpc CreateLeave (createLeaveRequest) returns (Response) {}
+  rpc UpdateLeave (createLeaveRequest) returns (Response) {}
+  rpc FetchSingleLeave (SingleLeave)returns (Response) {}
+  rpc FetchAllLeave(Empty)returns (Response) {}
+  rpc FilterLeave(Empty)returns (Response) {}
 }
 
-message createProductRequest {
-  string Name=1;
-  repeated string TagLabel=2;
-  repeated string Images=3;
-  string Tagimage=4;
-  int32 Price=5;
-  int32 BasePrice=6;
-  int32 Discount=7;
-  int32 MinimumSalePrice=8;
-  int32 MinimumQty=9;
-  string BusinessId=10;
+message createLeaveRequest {
+  string LeaveType=1;
+  repeated string NotifyPersons=2;
+  string AppliedDate=3;
+  string Reason=4;
+  string EmployId=5;
 }
 
-message createEmployeeRequest {
-  string FirstName=1;
-  string LastName=2;
-  string Email=3;
-  bool IsPermenent=4;
-  repeated string Contact=5;
-  bool IsMarried=6;
-  string Dob=7;
-  addressInfo Address=8;
-  bankingInfo BankInfo=9;
-  string EmployerId=10;
+message Empty{
+
 }
 
-message bankingInfo{
-  string Bank=1;
-  string IfscCode=2;
-  string AccountNo=3;
-  string BankingName=4;
-}
-message addressInfo{
-  string Address=1;
-  string LandMark=2;
-  string City=3;
-  string State=4;
-  int32 PinCode=5;
+message SingleLeave{
+  string data = 1;
 }
 
  message Response{
