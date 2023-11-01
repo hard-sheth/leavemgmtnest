@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package leaveManagement;
+
+
+service LeaveService {
+  rpc CreateLeave (createLeaveRequest) returns (Response) {}
+  rpc UpdateLeave (createLeaveRequest) returns (Response) {}
+  rpc FetchSingleLeave (SingleLeave)returns (Response) {}
+  rpc FetchAllLeave(Empty)returns (Response) {}
+  rpc FilterLeave(Empty)returns (Response) {}
+}
+
+message createLeaveRequest {
+  string LeaveType=1;
+  repeated string NotifyPersons=2;
+  string AppliedDate=3;
+  string Reason=4;
+  string EmployId=5;
+}
+
+message Empty{
+
+}
+
+message SingleLeave{
+  string data = 1;
+}
+
+ message Response{
+  string data = 1;
+}

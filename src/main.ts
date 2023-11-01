@@ -13,8 +13,8 @@ async function bootstrap() {
     {
       transport: Transport.GRPC,
       options: {
-        package: 'productEmployeeBook',
-        protoPath: `${__dirname}/proto/productBook.proto`,
+        package: 'leaveManagement',
+        protoPath: `${__dirname}/proto/leave.proto`,
         url: `0.0.0.0:${process.env.PORT}`,
       },
     },
